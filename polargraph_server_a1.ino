@@ -45,8 +45,8 @@ There are five config sections:
 // ========================================
 // Uncomment the SPI and SD lines below if you have a MEGA, and are going to use 
 // the SD features.  http://forum.arduino.cc/index.php?topic=173584.0
-//#include <SPI.h>
-//#include <SD.h>
+#include <SPI.h>
+#include <SD.h>
 
 
 // 3. Specify what kind of motor driver you are using
@@ -55,7 +55,7 @@ There are five config sections:
 
 //   i. Adafruit Motorshield v1. The original, and still the best.
 //   -------------------------------------------------------------
-#define ADAFRUIT_MOTORSHIELD_V1
+//#define ADAFRUIT_MOTORSHIELD_V1
 #include <AFMotor.h>
 
 //   ii. Adafruit Motorshield v2. It's all squealy.
@@ -68,7 +68,7 @@ There are five config sections:
 //   iii. Using discrete stepper drivers? (eg EasyDriver, stepstick, Pololu gear)
 //   ----------------------------------------------------------------------------
 //   Don't forget to define your pins in 'configuration.ino'.
-//#define SERIAL_STEPPER_DRIVERS 
+#define SERIAL_STEPPER_DRIVERS 
 
 //   iv. Using a signal amplifier like a UNL2003? 
 //   --------------------------------------------
@@ -135,9 +135,9 @@ static int penLiftSpeed = 3; // ms between steps of moving motor
 byte const PEN_HEIGHT_SERVO_PIN = 9; //UNL2003 driver uses pin 9
 boolean isPenUp = false;
 
-int motorStepsPerRev = 800;
+int motorStepsPerRev = 200;
 float mmPerRev = 95;
-byte stepMultiplier = 1;
+byte stepMultiplier = 32;
 
 static int machineWidth = 650;
 static int machineHeight = 800;
@@ -145,8 +145,8 @@ static int machineHeight = 800;
 static int defaultMachineWidth = 650;
 static int defaultMachineHeight = 650;
 static int defaultMmPerRev = 95;
-static int defaultStepsPerRev = 800;
-static int defaultStepMultiplier = 1;
+static int defaultStepsPerRev = 200;
+static int defaultStepMultiplier = 32;
 
 float currentMaxSpeed = 800.0;
 float currentAcceleration = 400.0;

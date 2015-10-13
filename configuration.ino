@@ -53,24 +53,24 @@ that if you can. If you can't, then you know how to change it.
 #ifdef SERIAL_STEPPER_DRIVERS
 
 //Pin settings for MarkBs v2.x Eggbot/Polargraph Nano Controller board. See http://www.makebournemouth.com/?page_id=104&paged=2
-#define MOTOR_A_ENABLE_PIN 12
-#define MOTOR_A_STEP_PIN 8
-#define MOTOR_A_DIR_PIN 7
+#define MOTOR_A_ENABLE_PIN 9
+#define MOTOR_A_STEP_PIN 3
+#define MOTOR_A_DIR_PIN 2
   
-#define MOTOR_B_ENABLE_PIN 12
-#define MOTOR_B_STEP_PIN 6
-#define MOTOR_B_DIR_PIN 5
+#define MOTOR_B_ENABLE_PIN 9
+#define MOTOR_B_STEP_PIN 5
+#define MOTOR_B_DIR_PIN 4
 AccelStepper motorA(1,MOTOR_A_STEP_PIN, MOTOR_A_DIR_PIN); 
 AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN); 
 
 //Set micro stepping pins here
-#define MS1_PIN 11
-#define MS2_PIN 10
-#define MS3_PIN 9
+#define MS1_PIN 8
+#define MS2_PIN 7
+#define MS3_PIN 6
 
 //Set the micro stepping level here
-#define MS1 LOW
-#define MS2 LOW
+#define MS1 HIGH
+#define MS2 HIGH
 #define MS3 HIGH
 
 #endif

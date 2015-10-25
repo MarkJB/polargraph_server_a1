@@ -64,14 +64,37 @@ AccelStepper motorA(1,MOTOR_A_STEP_PIN, MOTOR_A_DIR_PIN);
 AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN); 
 
 //Set micro stepping pins here
-#define MS1_PIN 8
-#define MS2_PIN 7
-#define MS3_PIN 6
+#define M0_PIN 8
+#define M1_PIN 7
+#define M2_PIN 6
 
-//Set the micro stepping level here
-#define MS1 HIGH
-#define MS2 HIGH
-#define MS3 HIGH
+//Set the micro stepping level here (Defaulting to 1/16th as that doesn't require modification to Processing Control app source to support 1/32nd)
+#define M0_STEP LOW
+#define M1_STEP LOW
+#define M2_STEP HIGH
+
+/*
+DRV8825 Microstepping configuration
+
+M0  M1  M2  STEP MODE
+0   0   0   Full step (2-phase excitation) with 71% current
+1   0   0   1/2 step (1-2 phase excitation)
+0   1   0   1/4 step (W1-2 phase excitation)
+1   1   0   8 microsteps/step
+0   0   1   16 microsteps/step
+1   0   1   32 microsteps/step
+0   1   1   32 microsteps/step
+1   1   1   32 microsteps/step
+
+A4988 Microstepping configuration 
+MS1   MS2   MS3   Microstep Resolution Excitation Mode
+(M0)  (M1)  (M2)
+L     L     L     Full Step 2 Phase
+H     L     L     Half Step 1-2 Phase
+L     H     L     Quarter Step W1-2 Phase
+H     H     L     Eighth Step 2W1-2 Phase
+H     H     H     Sixteenth Step 4W1-2 Phase
+*/
 
 #endif
 
@@ -113,6 +136,15 @@ AccelStepper motorB(8, 2,4,3,5);
 void configuration_motorSetup()
 {
 #ifdef SERIAL_STEPPER_DRIVERS
+  //Setup Microstepping
+  pinMode(M0_PIN, OUTPUT);
+  pinMode(M1_PIN, OUTPUT);
+  pinMode(M2_PIN, OUTPUT);
+  digitalWrite(M0_PIN, M0_STEP);
+  digitalWrite(M1_PIN, M1_STEP);
+  digitalWrite(M2_PIN, M2_STEP);
+  
+  //Setup drive pins
   pinMode(MOTOR_A_ENABLE_PIN, OUTPUT);
   digitalWrite(MOTOR_A_ENABLE_PIN, HIGH);
   pinMode(MOTOR_B_ENABLE_PIN, OUTPUT);

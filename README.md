@@ -1,7 +1,11 @@
 polargraph_server_a1
 ====================
 
-Modified for MarkBs Eggbot/Polargraph v2.x Arduino Nano control board. See www.sub-design.co.uk or http://www.makebournemouth.com/?p=340 or github.com/markjb for details. Note: Firmware compiles with SD card but not tested. Come to think of it, this version hasn't been tested with 2.x boards yet... its here for convenience. I'll upate this readme when i've tested it. Yeah - SD card support is looking pretty pointless as the code to do Norwegian Pixel makes the firmware about 50k which aint gonna fit in the 328... So its either use a Mega or port to Teensy and given the cost of a Mega clone vs a Teensy, the only benifit of a Teensy would be the small size.
+Modified for MarkBs Eggbot/Polargraph v2.x Arduino Nano control board. See www.sub-design.co.uk or http://www.makebournemouth.com/?p=340 or github.com/markjb for details. 
+
+Update (14/02/2016): Tested extensivley with the v2.x boards and it is rock solid.
+
+Note: Firmware compiles with SD card but not tested. Come to think of it, this version hasn't been tested with 2.x boards yet... its here for convenience. I'll upate this readme when i've tested it. Yeah - SD card support is looking pretty pointless as the code to do Norwegian Pixel makes the firmware about 50k which aint gonna fit in the 328... So its either use a Mega or port to Teensy and given the cost of a Mega clone vs a Teensy, the only benifit of a Teensy would be the small size.
 
 Polargraph Server for Arduino UNO and MEGA compatible boards using Adafruit motorshields,
 serial stepper drivers (eg Easy Drivers, stepsticks etc) or signal amplifiers (eg ULN2003s).

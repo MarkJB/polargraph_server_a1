@@ -7,6 +7,8 @@ Update (14/02/2016): Tested extensivley with the v2.2 boards and it is rock soli
 
 Note: Firmware compiles with SD card but not tested... Yeah - SD card support is looking pretty pointless as the code to do Norwegian Pixel makes the firmware about 50k which aint gonna fit in the 328... So its either use a Mega or port to Teensy and given the cost of a Mega clone vs a Teensy, the only benifit of a Teensy would be the small size.
 
+====================
+
 Polargraph Server for Arduino UNO and MEGA compatible boards using Adafruit motorshields,
 serial stepper drivers (eg Easy Drivers, stepsticks etc) or signal amplifiers (eg ULN2003s).
 
